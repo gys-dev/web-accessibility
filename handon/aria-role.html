@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Role</h1>
+
+    <div class="custom-btn" onclick="alert('happy with this web')">
+        <span>Button</span>
+    </div>
+
+    <div class="custom-btn" onclick="alert('happy with this web')" role="button" tabindex="0">
+        <span>Button</span>
+    </div>
+
+
+    <div class='fakeHeading'>A fake heading</div>
+
+    <div class='fakeHeading' role="heading" aria-level="3">A fake heading</div>
+
+    <h2>List</h2>
+    <div class="fakelist">
+        <span>A house of straw</span>
+        <span>A house of sticks</span>
+        <span>A house of bricks</span>
+    </div>
+
+    <div class="fakelist" role="list">
+        <span role="listitem">A house of straw</span>
+        <span role="listitem">A house of sticks</span>
+        <span role="listitem">A house of bricks</span>
+    </div>    
+
+
+
+    <h1>Alt</h1>
+
+    <img src="https://kenh14cdn.com/203336854389633024/2023/3/6/photo-13-1678089401776337463298.jpeg" width="300"
+        height="400" alt="A cat sit in front of breaking wall" />
+    
+    <h4>Drinks</h4>
+    <ul>
+        <li>
+            <p>Lemon monito</p>
+            <a href="#">Read more</a>
+        </li>
+
+        <li>
+            <p>Orange</p>
+            <a href="#">Read more</a>
+        </li>
+
+        <li>
+            <p>Pipnable</p>
+            <a href="#">Read more</a>
+        </li>
+
+    </ul>
+
+    <ul>
+        <li>
+            <p>Lemon monito</p>
+            <a href="#" aria-label="Read more lemon monito">Read more</a>
+        </li>
+
+        <li>
+            <p>Orange</p>
+            <a href="#" aria-label="Read more Orange">Read more</a>
+        </li>
+
+        <li>
+            <p>Pipnable</p>
+            <a href="#" aria-label="Read more Pipnable">Read more</a>
+        </li>
+    </ul>
+
+    <button aria-describedby="trash-desc">Move to trash</button>
+
+    <p id="trash-desc" aria-hidden="true">
+        Items in the trash will be permanently removed after 30 days.
+    </p>
+    
+</body>
+
+</html>

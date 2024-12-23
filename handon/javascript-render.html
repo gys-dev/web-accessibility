@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .content[aria-hidden="false"] {
+            display: block;
+        }
+
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid #ccc;
+        }
+        .tabs li {
+            margin-right: 5px;
+        }
+        .tabs button {
+            background: none;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        .tabs button[aria-selected="true"] {
+            border-color: #007BFF;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .tab-content[aria-hidden="false"] {
+            display: block;
+        }
+
+        .pagination {
+            list-style: none;
+            display: flex;
+            padding: 0;
+            margin: 0;
+        }
+        .pagination li {
+            margin-right: 5px;
+        }
+        .pagination button {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .pagination button[aria-current="page"] {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            border-color: #007BFF;
+        }
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+        .carousel-images img {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+        .carousel-images img[aria-hidden="false"] {
+            display: block;
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .carousel-controls button {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel-controls button[aria-current="true"] {
+            background-color: #007BFF;
+            color: white;
+            border-color: #007BFF;
+        }
+
+        .nav-menu, .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-menu > li {
+            position: relative;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .nav-menu > li:hover .submenu,
+        .nav-menu > li:focus-within .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal 
+    https://a11y-solutions.stevenwoodson.com/solutions/focus/modals/ -->
+
+
+    <h1>ARIA Expanded Example</h1>
+
+    <button id="toggleButton" aria-expanded="false" aria-controls="collapsibleContent">
+        Show More
+    </button>
+
+    <div id="collapsibleContent" class="content" aria-hidden="true">
+        <p>This is the hidden content that can be shown or hidden when the button is clicked.</p>
+    </div>
+
+    <!-- Aria Live -->
+    <!-- https://codepen.io/SaraSoueidan/pen/rNoJRKw/5b5ca2a0db044238fc0f9afee3362619 -->
+
+    <h1>Accessible Tabs with ARIA</h1>
+
+    <ul class="tabs" role="tablist">
+        <li role="presentation">
+            <button role="tab" id="tab1" aria-controls="panel1" aria-selected="true">Tab 1</button>
+        </li>
+        <li role="presentation">
+            <button role="tab" id="tab2" aria-controls="panel2" aria-selected="false">Tab 2</button>
+        </li>
+        <li role="presentation">
+            <button role="tab" id="tab3" aria-controls="panel3" aria-selected="false">Tab 3</button>
+        </li>
+    </ul>
+
+    <div id="panel1" class="tab-content" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+        <p>Content for Tab 1</p>
+    </div>
+    <div id="panel2" class="tab-content" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+        <p>Content for Tab 2</p>
+    </div>
+    <div id="panel3" class="tab-content" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+        <p>Content for Tab 3</p>
+    </div>
+
+    <h1>Accessible Pagination with ARIA</h1>
+
+    <ul class="pagination" role="navigation" aria-label="Pagination Navigation">
+        <li><button role="button" aria-current="page" aria-label="Page 1">1</button></li>
+        <li><button role="button" aria-label="Page 2">2</button></li>
+        <li><button role="button" aria-label="Page 3">3</button></li>
+        <li><button role="button" aria-label="Page 4">4</button></li>
+        <li><button role="button" aria-label="Page 5">5</button></li>
+    </ul>
+
+    <div id="content">
+        <p>Content for Page 1</p>
+    </div>
+
+
+    <h1>Accessible Image Carousel with ARIA</h1>
+
+    <div class="carousel" aria-label="Image Carousel">
+        <div class="carousel-images">
+            <img src="https://via.placeholder.com/300x200?text=Image+1" alt="Image 1" aria-hidden="false">
+            <img src="https://via.placeholder.com/300x200?text=Image+2" alt="Image 2" aria-hidden="true">
+            <img src="https://via.placeholder.com/300x200?text=Image+3" alt="Image 3" aria-hidden="true">
+        </div>
+    </div>
+
+    <div class="carousel-controls">
+        <button aria-label="Image 1" aria-current="true">1</button>
+        <button aria-label="Image 2">2</button>
+        <button aria-label="Image 3">3</button>
+    </div>
+
+    <h1>Accessible Navigation with ARIA</h1>
+
+    <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+            <li>
+                <a href="#home" id="home">Home</a>
+            </li>
+            <li>
+                <a href="#services" id="services" aria-haspopup="true" aria-expanded="false" aria-owns="submenu-services">Services</a>
+                
+                <ul id="submenu-services" class="submenu" role="menu" aria-label="Major services">
+                    <li role="menuitem"><a href="#web-design">Web Design</a></li>
+                    <li role="menuitem"><a href="#seo">SEO</a></li>
+                    <li role="menuitem"><a href="#marketing">Marketing</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#contact" id="contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../scripts.js"></script>
+
+    
+</body>
+</html>

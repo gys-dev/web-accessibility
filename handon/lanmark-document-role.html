@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landmark Example Page</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "aside nav"
+                "aside main"
+                "footer footer";
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: auto;
+            gap: 10px;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            grid-area: header;
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+        .nav {
+            grid-area: nav;
+            background-color: #e9ecef;
+            padding: 10px;
+        }
+        .aside {
+            grid-area: aside;
+            background-color: #dee2e6;
+            padding: 10px;
+        }
+        main {
+            grid-area: main;
+            background-color: #f1f3f5;
+            padding: 10px;
+        }
+        footer {
+            grid-area: footer;
+            background-color: #ced4da;
+            padding: 10px;
+            text-align: center;
+            width: "100%";
+        }
+    </style>
+</head>
+<body>
+    <div role="banner" class="header">
+        <h1>Header</h1>
+    </div>
+    <div role="complementary" class="aside">
+        <h2>Aside</h2>
+        <p>This is the aside content on the left.</p>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+        </ul>
+    </div>
+    <div role="navigation" class=".nav">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+        </ul>
+    </div>
+    <div role="main" class="main">
+        <h2>Main Content</h2>
+        <div id="section1" role="region">
+            <h3>Section 1</h3>
+            <p>This is the first section of the main content area.</p>
+        </div>
+        <div id="section2" role="region">
+            <h3>Section 2</h3>
+            <p>This is the second section of the main content area.</p>
+        </div>
+        <div id="section3" role="region">
+            <h3>Section 3</h3>
+            <p>This is the third section of the main content area.</p>
+        </div>
+    </div>
+    <div role="contentinfo" class="footer">
+        <p>Footer</p>
+    </div>
+</body>
+</html>

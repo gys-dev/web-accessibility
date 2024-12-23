@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        body {
+            margin: 0 1rem;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        input {
+            margin: 0.5rem;
+        }
+
+        textarea {
+            margin-top: 0.5rem;
+            min-width: 100%;
+            min-height: 5rem;
+        }
+
+        fieldset {
+            margin: 1.5rem 0;
+        }
+
+        legend {
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+        #note {
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="sundae-order-form">
+        <h2>Online Sundae Order Form</h2>
+        <fieldset>
+            <!-- label missing -->
+            <legend>Customer Info</legend>
+            <p>Name: <label><input type=name></label></p>
+            <p>Telephone: <input required type=tel></p>
+            <p>Email address: <input type=email></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Telephone</legend>
+            <input id="one" type="number" aria-label="Area Code" />
+            <input type="number" aria-label="Exchange Code" />
+            <input type="number" aria-label="Line Number" />
+        </fieldset>
+
+        <div>
+            <label for="hikeDate">HIKE completion date</label>
+            <input id="hikeDate" aria-describedby="dateFormat" type="text" />
+            <p id="dateFormat">Note: This date will be recorded.</p>
+        </div>
+
+        <fieldset>
+            <legend>Toppings</legend>
+            <p><label><input type=checkbox name=topping value="whipped-cream">Whipped cream</label></p>
+            <p><label><input type=checkbox name=topping value="cherry">Cherry</label></p>
+            <p><label><input type=checkbox name=topping value="nuts">Nuts</label></p>
+            <p><label><input type=checkbox name=topping value="caramel-sauce">Caramel sauce</label></p>
+            <p><label><input type=checkbox name=topping value="chocolate-sauce">Chocolate sauce</label></p>
+        </fieldset>
+        
+        <p><label>Delivery instructions: </label><br><textarea id="myTextarea" name="comments"></textarea></p>
+        
+        <div aria-live="assertive" id="notif" aria-relevant="additions">
+            
+        </div>
+        
+        <button id="message" >update message</button>
+        <button type="submit">Submit order</button>
+
+
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../scripts.js"></script>
+</body>
+
+</html>
